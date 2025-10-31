@@ -13,6 +13,11 @@ const ProductProvider = ({ children }) => {
     { id: 3, name: "Printer", price: 1900000 },
     { id: 4, name: "Camera", price: 1600000 },
   ];
+  const [editProduct, setEditProduct] = useState({
+    id: "",
+    name: "",
+    price: "",
+  });
 
   const handleChangeProduct = (e) => {
     const { name, value } = e.target;
@@ -21,12 +26,33 @@ const ProductProvider = ({ children }) => {
 
   const submitNewProduct = (e) => {
     e.preventDefault();
-    setProducts([...products, formProduct]);
+    setProducts([
+      ...products,
+      {
+        ...formProduct,
+        id: formProduct.id,
+        name: formProduct.name,
+        price: formProduct.price,
+      },
+    ]);
+    alert("Produk berhasil ditambahkan!");
+  };
+
+  const handleEditProduct = (e) => {
+    const { name, value } = e.target;
+    setEditProduct({ ...editProduct, [name]: value });
   };
 
   return (
     <ProductContext.Provider
-      value={{ handleChangeProduct, submitNewProduct, products }}
+      value={{
+        handleChangeProduct,
+        submitNewProduct,
+        products,
+        formProduct,
+        editProduct,
+        handleEditProduct,
+      }}
     >
       {children}
     </ProductContext.Provider>

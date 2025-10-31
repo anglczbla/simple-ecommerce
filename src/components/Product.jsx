@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 
 const Product = () => {
-  const { handleChangeProduct, submitNewProduct } = useContext(ProductContext);
+  const { handleChangeProduct, submitNewProduct, formProduct } =
+    useContext(ProductContext);
   return (
     <div>
       <div>

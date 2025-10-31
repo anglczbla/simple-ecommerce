@@ -4,7 +4,7 @@ import { ProductContext } from "../context/ProductContext";
 
 const ProductList = () => {
   const { products } = useContext(ProductContext);
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, deleteProduct } = useContext(CartContext);
   return (
     <div>
       <h1>Daftar Products</h1>
@@ -15,7 +15,8 @@ const ProductList = () => {
             <li>Nama: {item.name}</li>
             <li>Price: {item.price}</li>
           </ul>
-          <button onClick={addToCart(item)}>Add To Cart</button>
+          <button onClick={() => addToCart(item)}>Add To Cart</button>
+          <button onClick={() => deleteProduct(item)}>Delete</button>
         </div>
       ))}
     </div>

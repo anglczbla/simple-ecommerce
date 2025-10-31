@@ -13,11 +13,11 @@ const CartProvider = ({ children }) => {
         cart.map(
           (item,
           (index) =>
-            prod.id == item.id
+            item.id == prod.id
               ? {
                   ...item,
                   quantity: item.quantity + 1,
-                  total: item.price * item.price,
+                  total: item.price * item.quantity,
                 }
               : item)
         )
@@ -26,9 +26,41 @@ const CartProvider = ({ children }) => {
       setCart([...cart], { ...prod, quantity: 1 });
     }
   };
+
+  const deleteProduct = (item) => {
+    setCart(cart.filter(cart, (index) => cart.id !== item.id));
+  };
+
+  const getTotalPrice = () => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+  const getTotalItems = () => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
+  };
+  
+  const updateQuantity = (productId,  newQuantity) = () => {
+    if(newQuantity < 1) return;
+    setCart(cart.map((item => item.id == productId ? {...item, quantity: newQuantity} : item)))
+  };
+
+  const clearCart = () => {
+    setCart([]);
+  };
+
   return (
     <div>
-      <CartContext.Provider value={{ addToCart }}>
+      <CartContext.Provider
+        value={{
+          addToCart,
+          deleteProduct,
+          getTotalPrice,
+          cart,
+          getTotalItems,
+          clearCart,
+          updateQuantity
+        }}
+      >
         {children}
       </CartContext.Provider>
     </div>
