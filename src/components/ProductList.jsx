@@ -3,8 +3,8 @@ import { CartContext } from "../context/CartContext";
 import { ProductContext } from "../context/ProductContext";
 
 const ProductList = () => {
-  const { products } = useContext(ProductContext);
-  const { addToCart, deleteProduct } = useContext(CartContext);
+  const { products, deleteProduct } = useContext(ProductContext);
+  const { addToCart } = useContext(CartContext);
   return (
     <div>
       <h1>Daftar Products</h1>

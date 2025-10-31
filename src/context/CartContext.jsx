@@ -27,7 +27,7 @@ const CartProvider = ({ children }) => {
     }
   };
 
-  const deleteProduct = (item) => {
+  const deleteCart = (item) => {
     setCart(cart.filter(cart, (index) => cart.id !== item.id));
   };
 
@@ -38,10 +38,14 @@ const CartProvider = ({ children }) => {
   const getTotalItems = () => {
     return cart.reduce((total, item) => total + item.quantity, 0);
   };
-  
-  const updateQuantity = (productId,  newQuantity) = () => {
-    if(newQuantity < 1) return;
-    setCart(cart.map((item => item.id == productId ? {...item, quantity: newQuantity} : item)))
+
+  const updateQuantity = (productId, newQuantity) => {
+    if (newQuantity < 1) return;
+    setCart(
+      cart.map((item) =>
+        item.id == productId ? { ...item, quantity: newQuantity } : item
+      )
+    );
   };
 
   const clearCart = () => {
@@ -53,12 +57,12 @@ const CartProvider = ({ children }) => {
       <CartContext.Provider
         value={{
           addToCart,
-          deleteProduct,
+          deleteCart,
           getTotalPrice,
           cart,
           getTotalItems,
           clearCart,
-          updateQuantity
+          updateQuantity,
         }}
       >
         {children}
