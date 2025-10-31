@@ -2,13 +2,14 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
-  const { cart, getTotalPrice, updateQuantity } = useContext(CartContext);
+  const { cart, getTotalPrice, updateQuantity, deleteCart } =
+    useContext(CartContext);
 
   if (cart.length === 0) {
     return (
       <>
         <h1>Keranjang Belanja</h1>
-        <p>Keranjang Belanja anda Kosong</p>
+        <p>Keranjang belanja Anda kosong.</p>
       </>
     );
   }
@@ -16,25 +17,31 @@ const Cart = () => {
   return (
     <>
       <div>
-        <h1>Cart</h1>
+        <h1>Keranjang Belanja</h1>
+
         {cart.map((item, index) => (
-          <div key={index}>
+          <div key={index} style={{ marginBottom: "20px" }}>
             <ul>
               <li>ID: {item.id}</li>
-              <li>NAMA: {item.name}</li>
-              <li>HARGA: RP.{item.price}</li>
+              <li>Nama: {item.name}</li>
+              <li>Harga: Rp.{item.price}</li>
+              <li>Jumlah: {item.quantity}</li>
             </ul>
+
+            <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+              Kurang
+            </button>
+            <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>
+              Tambah
+            </button>
+            <button onClick={() => deleteCart(item)}>Hapus</button>
           </div>
         ))}
-        <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>
-          Kurang
-        </button>
-        <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>
-          Tambah
-        </button>
-      </div>
 
-      <p>Total: {getTotalPrice()}</p>
+        <p>
+          <strong>Total: Rp.{getTotalPrice()}</strong>
+        </p>
+      </div>
     </>
   );
 };

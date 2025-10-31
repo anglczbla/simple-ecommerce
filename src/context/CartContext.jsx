@@ -4,31 +4,30 @@ export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  console.log("isi cart", cart);
 
   const addToCart = (prod) => {
     const adaProduk = cart.find((cart) => cart.id == prod.id);
 
     if (adaProduk) {
       setCart(
-        cart.map(
-          (item,
-          (index) =>
-            item.id == prod.id
-              ? {
-                  ...item,
-                  quantity: item.quantity + 1,
-                  total: item.price * item.quantity,
-                }
-              : item)
+        cart.map((item) =>
+          item.id === prod.id
+            ? {
+                ...item,
+                quantity: item.quantity + 1,
+                total: item.price * item.quantity,
+              }
+            : item
         )
       );
     } else {
-      setCart([...cart], { ...prod, quantity: 1 });
+      setCart([...cart, { ...prod, quantity: 1 }]);
     }
   };
 
   const deleteCart = (item) => {
-    setCart(cart.filter(cart, (index) => cart.id !== item.id));
+    setCart(cart.filter((cart) => cart.id !== item.id));
   };
 
   const getTotalPrice = () => {
