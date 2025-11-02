@@ -58,7 +58,7 @@ const Checkout = () => {
                   placeholder="Masukan nama anda"
                   onChange={handleChange}
                   required
-                  className=" px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
                 />
               </div>
 
@@ -73,7 +73,7 @@ const Checkout = () => {
                   placeholder="Masukan email anda"
                   onChange={handleChange}
                   required
-                  className=" px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
                 />
               </div>
 
@@ -88,7 +88,7 @@ const Checkout = () => {
                   placeholder="Masukan no telepon anda"
                   onChange={handleChange}
                   required
-                  className=" px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
                 />
               </div>
 
@@ -103,7 +103,7 @@ const Checkout = () => {
                   onChange={handleChange}
                   required
                   rows="4"
-                  className=" px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors resize-none"
                 />
               </div>
 

@@ -43,7 +43,7 @@ const Product = () => {
                   placeholder="Masukan ID Product"
                   onChange={handleChangeProduct}
                   required
-                  className=" px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
                 />
               </div>
 
@@ -58,7 +58,7 @@ const Product = () => {
                   placeholder="Masukan nama Product"
                   onChange={handleChangeProduct}
                   required
-                  className=" px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
                 />
               </div>
 
@@ -73,7 +73,7 @@ const Product = () => {
                   placeholder="Masukan price Product"
                   onChange={handleChangeProduct}
                   required
-                  className=" px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
                 />
               </div>
             </div>
@@ -150,7 +150,7 @@ const Product = () => {
                           value={editProduct.id}
                           placeholder="Masukan id baru product"
                           onChange={handleEditProduct}
-                          className=" px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
                         />
                       </div>
                       <div>
@@ -163,7 +163,7 @@ const Product = () => {
                           value={editProduct.name}
                           placeholder="Masukan nama baru product"
                           onChange={handleEditProduct}
-                          className=" px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
                         />
                       </div>
                       <div>
@@ -176,7 +176,7 @@ const Product = () => {
                           value={editProduct.price}
                           placeholder="Masukan harga baru product"
                           onChange={handleEditProduct}
-                          className=" px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
                         />
                       </div>
                     </div>
