@@ -39,12 +39,16 @@ const CartProvider = ({ children }) => {
   };
 
   const updateQuantity = (productId, newQuantity) => {
-    if (newQuantity < 1) return;
-    setCart(
-      cart.map((item) =>
-        item.id == productId ? { ...item, quantity: newQuantity } : item
-      )
-    );
+    if (newQuantity < 1) {
+      alert("Produk harus lebih dari satu");
+      return;
+    } else {
+      setCart(
+        cart.map((item) =>
+          item.id == productId ? { ...item, quantity: newQuantity } : item
+        )
+      );
+    }
   };
 
   const clearCart = () => {
