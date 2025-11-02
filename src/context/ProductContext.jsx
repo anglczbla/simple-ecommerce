@@ -13,11 +13,14 @@ const ProductProvider = ({ children }) => {
     { id: 3, name: "Printer", price: 1900000 },
     { id: 4, name: "Camera", price: 1600000 },
   ]);
+  console.log("isi products", products);
+
   const [editProduct, setEditProduct] = useState({
     id: "",
     name: "",
     price: "",
   });
+  console.log("isi edit", editProduct);
 
   const handleChangeProduct = (e) => {
     const { name, value } = e.target;
@@ -43,6 +46,23 @@ const ProductProvider = ({ children }) => {
     setEditProduct({ ...editProduct, [name]: value });
   };
 
+  const saveEdit = (editProduct, i) => {
+    setProducts(
+      products.map((item, index) => {
+        if (i == index) {
+          return {
+            ...item,
+            id: editProduct.id,
+            name: editProduct.name,
+            price: editProduct.price,
+          };
+        } else {
+          return item;
+        }
+      })
+    );
+  };
+
   const deleteProduct = (item) => {
     setProducts(products.filter((prod) => prod.id !== item.id));
   };
@@ -55,8 +75,10 @@ const ProductProvider = ({ children }) => {
         products,
         formProduct,
         editProduct,
+        setEditProduct,
         handleEditProduct,
         deleteProduct,
+        saveEdit,
       }}
     >
       {children}
