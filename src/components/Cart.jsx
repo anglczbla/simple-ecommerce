@@ -123,14 +123,14 @@ const Cart = () => {
 
               <a
                 href="/checkout"
-                className="block w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center py-4 rounded-xl font-bold text-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
+                className="block bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center py-4 rounded-xl font-bold text-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
               >
                 Lanjut ke Checkout
               </a>
 
               <a
                 href="/products"
-                className="block w-full mt-3 border-2 border-gray-300 text-gray-700 text-center py-3 rounded-xl font-semibold hover:border-indigo-600 hover:text-indigo-600 transition-all"
+                className="block mt-3 border-2 border-gray-300 text-gray-700 text-center py-3 rounded-xl font-semibold hover:border-indigo-600 hover:text-indigo-600 transition-all"
               >
                 Lanjut Belanja
               </a>

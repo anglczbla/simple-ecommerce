@@ -58,7 +58,7 @@ const Checkout = () => {
                   placeholder="Masukan nama anda"
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
+                  className=" px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
                 />
               </div>
 
@@ -73,7 +73,7 @@ const Checkout = () => {
                   placeholder="Masukan email anda"
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
+                  className=" px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
                 />
               </div>
 
@@ -88,7 +88,7 @@ const Checkout = () => {
                   placeholder="Masukan no telepon anda"
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
+                  className=" px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors"
                 />
               </div>
 
@@ -103,7 +103,7 @@ const Checkout = () => {
                   onChange={handleChange}
                   required
                   rows="4"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors resize-none"
+                  className=" px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-600 focus:outline-none transition-colors resize-none"
                 />
               </div>
 
@@ -179,7 +179,7 @@ const Checkout = () => {
 
                   <button
                     onClick={clearCart}
-                    className="w-full mt-4 border-2 border-red-300 text-red-600 py-3 rounded-xl font-semibold hover:bg-red-600 hover:text-white hover:border-red-600 transition-all"
+                    className=" mt-4 border-2 border-red-300 text-red-600 py-3 rounded-xl font-semibold hover:bg-red-600 hover:text-white hover:border-red-600 transition-all"
                   >
                     🗑️ Kosongkan Keranjang
                   </button>
