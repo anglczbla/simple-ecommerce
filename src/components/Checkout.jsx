@@ -179,7 +179,7 @@ const Checkout = () => {
 
                   <button
                     onClick={clearCart}
-                    className=" mt-4 border-2 border-red-300 text-red-600 py-3 rounded-xl font-semibold hover:bg-red-600 hover:text-white hover:border-red-600 transition-all"
+                    className="w-full mt-4 border-2 border-red-300 text-red-600 py-3 rounded-xl font-semibold hover:bg-red-600 hover:text-white hover:border-red-600 transition-all"
                   >
                     🗑️ Kosongkan Keranjang
                   </button>

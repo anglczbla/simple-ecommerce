@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { ProductContext } from "../context/ProductContext";
 
@@ -33,12 +34,13 @@ const ProductList = () => {
             <p className="text-gray-500 mb-6">
               Produk akan muncul di sini setelah ditambahkan
             </p>
-            <a
-              href="/add-product"
+
+            <Link
+              to="/add-product"
               className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
             >
               Tambah Produk
-            </a>
+            </Link>
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

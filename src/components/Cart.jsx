@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
@@ -17,12 +18,13 @@ const Cart = () => {
             <p className="text-gray-500 text-lg mb-8">
               Keranjang belanja Anda kosong.
             </p>
-            <a
-              href="/products"
+
+            <Link
+              to="/products"
               className="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
             >
               Mulai Belanja
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -121,19 +123,19 @@ const Cart = () => {
                 </div>
               </div>
 
-              <a
-                href="/checkout"
+              <Link
+                to="/checkout"
                 className="block bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center py-4 rounded-xl font-bold text-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
               >
-                Lanjut ke Checkout
-              </a>
+                Check Out
+              </Link>
 
-              <a
-                href="/products"
+              <Link
+                to="/products"
                 className="block mt-3 border-2 border-gray-300 text-gray-700 text-center py-3 rounded-xl font-semibold hover:border-indigo-600 hover:text-indigo-600 transition-all"
               >
                 Lanjut Belanja
-              </a>
+              </Link>
             </div>
           </div>
         </div>
