@@ -13,14 +13,12 @@ const ProductProvider = ({ children }) => {
     { id: 3, name: "Printer", price: 1900000 },
     { id: 4, name: "Camera", price: 1600000 },
   ]);
-  console.log("isi products", products);
 
   const [editProduct, setEditProduct] = useState({
     id: "",
     name: "",
     price: "",
   });
-  console.log("isi edit", editProduct);
 
   const handleChangeProduct = (e) => {
     const { name, value } = e.target;

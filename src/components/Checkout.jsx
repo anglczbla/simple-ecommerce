@@ -11,9 +11,6 @@ const Checkout = () => {
   });
 
   const [fixForm, setFixform] = useState([]);
-  console.log("isi fix form", fixForm);
-
-  console.log("isi checkout", formcheckout);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
