@@ -6,87 +6,63 @@ const Navbar = () => {
   const { getTotalItems } = useContext(CartContext);
 
   return (
-    <nav
-      style={{
-        backgroundColor: "#333",
-        padding: "15px 20px",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        color: "white",
-      }}
-    >
-      <div style={{ fontSize: "24px", fontWeight: "bold" }}>🛍️ My Store</div>
-
-      <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-        <Link
-          to="/"
-          style={{
-            color: "white",
-            textDecoration: "none",
-            fontSize: "16px",
-          }}
-        >
-          Home
-        </Link>
-        <Link
-          to="/products"
-          style={{
-            color: "white",
-            textDecoration: "none",
-            fontSize: "16px",
-          }}
-        >
-          Products
-        </Link>
-        <Link
-          to="/add-product"
-          style={{
-            color: "white",
-            textDecoration: "none",
-            fontSize: "16px",
-          }}
-        >
-          Add Product
-        </Link>
-        <Link
-          to="/cart"
-          style={{
-            color: "white",
-            textDecoration: "none",
-            fontSize: "16px",
-            position: "relative",
-          }}
-        >
-          🛒 Cart
-          {getTotalItems() > 0 && (
-            <span
-              style={{
-                position: "absolute",
-                top: "-8px",
-                right: "-10px",
-                backgroundColor: "#f44336",
-                color: "white",
-                borderRadius: "50%",
-                padding: "2px 6px",
-                fontSize: "12px",
-                fontWeight: "bold",
-              }}
-            >
-              {getTotalItems()}
+    <nav className="bg-gradient-to-r from-indigo-700 to-purple-700 shadow-xl sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex justify-between items-center h-20">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3 group">
+            <span className="text-4xl transform group-hover:scale-110 transition-transform">
+              🛍️
             </span>
-          )}
-        </Link>
-        <Link
-          to="/checkout"
-          style={{
-            color: "white",
-            textDecoration: "none",
-            fontSize: "16px",
-          }}
-        >
-          Checkout
-        </Link>
+            <span className="text-2xl font-extrabold text-white tracking-tight">
+              My Store
+            </span>
+          </Link>
+
+          {/* Navigation Links */}
+          <div className="flex items-center gap-2">
+            <Link
+              to="/"
+              className="px-5 py-2.5 text-white font-semibold rounded-xl hover:bg-white/20 transition-all transform hover:scale-105"
+            >
+              Home
+            </Link>
+
+            <Link
+              to="/products"
+              className="px-5 py-2.5 text-white font-semibold rounded-xl hover:bg-white/20 transition-all transform hover:scale-105"
+            >
+              Products
+            </Link>
+
+            <Link
+              to="/add-product"
+              className="px-5 py-2.5 text-white font-semibold rounded-xl hover:bg-white/20 transition-all transform hover:scale-105"
+            >
+              Add Product
+            </Link>
+
+            <Link
+              to="/cart"
+              className="relative px-5 py-2.5 text-white font-semibold rounded-xl hover:bg-white/20 transition-all transform hover:scale-105 flex items-center gap-2"
+            >
+              <span className="text-xl">🛒</span>
+              Cart
+              {getTotalItems() > 0 && (
+                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center shadow-lg animate-pulse">
+                  {getTotalItems()}
+                </span>
+              )}
+            </Link>
+
+            <Link
+              to="/checkout"
+              className="ml-2 px-6 py-2.5 bg-white text-indigo-700 font-bold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all"
+            >
+              Checkout
+            </Link>
+          </div>
+        </div>
       </div>
     </nav>
   );
