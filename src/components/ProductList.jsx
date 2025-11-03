@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { ProductContext } from "../context/ProductContext";
@@ -6,6 +6,11 @@ import { ProductContext } from "../context/ProductContext";
 const ProductList = () => {
   const { products } = useContext(ProductContext);
   const { addToCart } = useContext(CartContext);
+  const [search, setSearch] = useState("");
+
+  const handleSearch = products.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4">
@@ -16,6 +21,22 @@ const ProductList = () => {
             <span className="text-6xl">🛒</span>
             Daftar Products
           </h1>
+          <input
+            type="text"
+            name="search"
+            value={search}
+            placeholder="Cari barang elektronik"
+            onChange={(e) => setSearch(e.target.value, search)}
+          />
+
+          <div>
+            {handleSearch.map((item) => (
+              <div key={item.id}>
+                <strong>{item.name}</strong>
+              </div>
+            ))}
+          </div>
+
           <p className="text-xl text-gray-600">
             Temukan produk elektronik terbaik untuk kebutuhan Anda
           </p>
