@@ -21,51 +21,82 @@ const ProductList = () => {
             <span className="text-6xl">🛒</span>
             Daftar Products
           </h1>
-          <input
-            type="text"
-            name="search"
-            value={search}
-            placeholder="Cari barang elektronik"
-            onChange={(e) => setSearch(e.target.value, search)}
-          />
-
-          <div>
-            {handleSearch.map((item) => (
-              <div key={item.id}>
-                <strong>{item.name}</strong>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 mb-6">
             Temukan produk elektronik terbaik untuk kebutuhan Anda
           </p>
-          <div className="mt-4 inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full font-semibold shadow-lg">
-            {products.length} Produk Tersedia
+
+          {/* Search Bar */}
+          <div className="max-w-2xl mx-auto mb-6">
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <span className="text-2xl">🔍</span>
+              </div>
+              <input
+                type="text"
+                name="search"
+                value={search}
+                placeholder="Cari barang elektronik..."
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full pl-14 pr-12 py-4 text-lg rounded-2xl border-2 border-gray-200 focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-100 transition-all shadow-lg"
+              />
+              {search && (
+                <button
+                  onClick={() => setSearch("")}
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  <span className="text-2xl">✕</span>
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Search Results Info */}
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <div className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full font-semibold shadow-lg">
+              {handleSearch.length} Produk {search && "Ditemukan"}
+            </div>
+            {search && (
+              <div className="inline-block bg-white text-gray-700 px-6 py-2 rounded-full font-semibold shadow-lg border-2 border-gray-200">
+                Kata kunci: "{search}"
+              </div>
+            )}
           </div>
         </div>
 
         {/* Product Grid */}
-        {products.length === 0 ? (
+        {handleSearch.length === 0 ? (
           <div className="bg-white rounded-2xl shadow-xl p-16 text-center">
-            <div className="text-7xl mb-6">📦</div>
+            <div className="text-7xl mb-6">{search ? "🔍" : "📦"}</div>
             <h3 className="text-2xl font-bold text-gray-800 mb-3">
-              Belum Ada Produk
+              {search
+                ? `Tidak Ada Hasil untuk "${search}"`
+                : "Belum Ada Produk"}
             </h3>
             <p className="text-gray-500 mb-6">
-              Produk akan muncul di sini setelah ditambahkan
+              {search
+                ? "Coba kata kunci lain atau hapus pencarian"
+                : "Produk akan muncul di sini setelah ditambahkan"}
             </p>
 
-            <Link
-              to="/add-product"
-              className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
-            >
-              Tambah Produk
-            </Link>
+            {search ? (
+              <button
+                onClick={() => setSearch("")}
+                className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
+              >
+                Hapus Pencarian
+              </button>
+            ) : (
+              <Link
+                to="/add-product"
+                className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
+              >
+                Tambah Produk
+              </Link>
+            )}
           </div>
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {products.map((item, index) => (
+            {handleSearch.map((item, index) => (
               <div
                 key={index}
                 className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100 group"
@@ -134,7 +165,7 @@ const ProductList = () => {
         )}
 
         {/* Bottom CTA */}
-        {products.length > 0 && (
+        {handleSearch.length > 0 && (
           <div className="mt-12 text-center">
             <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 shadow-xl">
               <h3 className="text-2xl font-bold text-white mb-3">
