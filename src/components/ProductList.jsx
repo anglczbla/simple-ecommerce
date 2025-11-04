@@ -147,9 +147,13 @@ const ProductList = () => {
 
                   {/* Quick View Link */}
                   <div className="mt-3 text-center">
-                    <button className="text-indigo-600 text-sm font-semibold hover:text-purple-600 transition-colors">
-                      Lihat Detail →
-                    </button>
+                    <Link
+                      className="text-indigo-600 text-sm font-semibold hover:text-purple-600 transition-colors"
+                      to={`/products/${item.id}`}
+                    >
+                      {" "}
+                      Lihat Detail →{" "}
+                    </Link>
                   </div>
                 </div>
 

@@ -8,10 +8,10 @@ const ProductProvider = ({ children }) => {
     price: "",
   });
   const [products, setProducts] = useState([
-    { id: 1, name: "Laptop Gaming", price: 10000000 },
-    { id: 2, name: "Mouse Wireless", price: 150000 },
-    { id: 3, name: "Printer", price: 1900000 },
-    { id: 4, name: "Camera", price: 1600000 },
+    { id: "1", name: "Laptop Gaming", price: 10000000 },
+    { id: "2", name: "Mouse Wireless", price: 150000 },
+    { id: "3", name: "Printer", price: 1900000 },
+    { id: "4", name: "Camera", price: 1600000 },
   ]);
 
   const [editProduct, setEditProduct] = useState({
@@ -37,6 +37,11 @@ const ProductProvider = ({ children }) => {
       },
     ]);
     alert("Produk berhasil ditambahkan!");
+    setFormProduct({
+      id: "",
+      name: "",
+      price: "",
+    });
   };
 
   const handleEditProduct = (e) => {
